@@ -16,5 +16,10 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /* node require star */
 
+// auth/jwt
 __exportStar(require("./auth/jwt_pb"), exports);
 __exportStar(require("./auth/jwt_grpc_pb"), exports);
+
+// auth/user
+__exportStar(require("./auth/user_pb"), exports);
+__exportStar(require("./auth/user_grpc_pb"), exports);

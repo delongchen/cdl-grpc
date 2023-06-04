@@ -4,6 +4,28 @@
 var grpc = require('@grpc/grpc-js');
 var auth_jwt_pb = require('../auth/jwt_pb.js');
 
+function serialize_auth_CheckRequest(arg) {
+  if (!(arg instanceof auth_jwt_pb.CheckRequest)) {
+    throw new Error('Expected argument of type auth.CheckRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_auth_CheckRequest(buffer_arg) {
+  return auth_jwt_pb.CheckRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_auth_CheckResponse(arg) {
+  if (!(arg instanceof auth_jwt_pb.CheckResponse)) {
+    throw new Error('Expected argument of type auth.CheckResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_auth_CheckResponse(buffer_arg) {
+  return auth_jwt_pb.CheckResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_auth_SignRequest(arg) {
   if (!(arg instanceof auth_jwt_pb.SignRequest)) {
     throw new Error('Expected argument of type auth.SignRequest');
@@ -38,6 +60,17 @@ var AuthJWTService = exports.AuthJWTService = {
     requestDeserialize: deserialize_auth_SignRequest,
     responseSerialize: serialize_auth_SignResponse,
     responseDeserialize: deserialize_auth_SignResponse,
+  },
+  check: {
+    path: '/auth.AuthJWT/Check',
+    requestStream: false,
+    responseStream: false,
+    requestType: auth_jwt_pb.CheckRequest,
+    responseType: auth_jwt_pb.CheckResponse,
+    requestSerialize: serialize_auth_CheckRequest,
+    requestDeserialize: deserialize_auth_CheckRequest,
+    responseSerialize: serialize_auth_CheckResponse,
+    responseDeserialize: deserialize_auth_CheckResponse,
   },
 };
 
