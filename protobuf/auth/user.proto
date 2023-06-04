@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package auth;
+
+service User {
+  rpc login (LoginRequest) returns (LoginResponse) {}
+  rpc register (RegisterRequest) returns (RegisterResponse) {}
+}
+
+enum LoginStatus {
+  LOGIN_OK = 0;
+  ERROR_PASSWORD = 1;
+  ERROR_NAME = 2;
+}
+
+enum RegisterStatus {
+  REGISTER_OK = 0;
+  ERROR_NAME_EXIST = 1;
+  ERROR_PASSWORD_ILLEGAL = 2;
+}
+
+message LoginRequest {
+  string mail = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  LoginStatus status = 1;
+  string msg = 2;
+}
+
+message RegisterRequest {
+  string mail = 1;
+  string password = 2;
+}
+
+message RegisterResponse {
+  RegisterStatus status = 1;
+  string msg = 2;
+}
