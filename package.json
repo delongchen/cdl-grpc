@@ -1,11 +1,9 @@
 {
   "name": "cdl-grpc",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.0.1",
+  "description": "cdl personal grpc",
+  "main": "jslib/index.js",
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -13,5 +11,9 @@
     "grpc-tools": "^1.12.4",
     "protoc-gen-js": "^3.21.2",
     "ts-protoc-gen": "0.15.1-pre.a71b34e"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.14",
+    "google-protobuf": "^3.21.2"
   }
 }
