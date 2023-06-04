@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package auth;
+
+service AuthJWT {
+  rpc Sign(SignRequest) returns (SignResponse) {}
+}
+
+message SignRequest {
+  uint32 user_id = 1;
+}
+
+enum ResponseCode {
+  OK = 0;
+  ERR = 1;
+}
+
+message SignResponse {
+  ResponseCode code = 1;
+  string msg = 2;
+  string token = 3;
+}
