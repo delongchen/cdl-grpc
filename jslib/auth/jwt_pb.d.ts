@@ -2,6 +2,7 @@
 // file: auth/jwt.proto
 
 import * as jspb from "google-protobuf";
+import * as auth_user_pb from "../auth/user_pb";
 
 export class SignPayload extends jspb.Message {
   getUserId(): number;
@@ -12,6 +13,12 @@ export class SignPayload extends jspb.Message {
 
   getUserName(): string;
   setUserName(value: string): void;
+
+  getRemember(): boolean;
+  setRemember(value: boolean): void;
+
+  getType(): auth_user_pb.UserTypeMap[keyof auth_user_pb.UserTypeMap];
+  setType(value: auth_user_pb.UserTypeMap[keyof auth_user_pb.UserTypeMap]): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SignPayload.AsObject;
@@ -28,6 +35,8 @@ export namespace SignPayload {
     userId: number,
     mail: string,
     userName: string,
+    remember: boolean,
+    type: auth_user_pb.UserTypeMap[keyof auth_user_pb.UserTypeMap],
   }
 }
 
@@ -78,46 +87,6 @@ export namespace SignResponse {
     code: ResponseCodeMap[keyof ResponseCodeMap],
     msg: string,
     token: string,
-  }
-}
-
-export class CheckRequest extends jspb.Message {
-  getToken(): string;
-  setToken(value: string): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): CheckRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: CheckRequest): CheckRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: CheckRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): CheckRequest;
-  static deserializeBinaryFromReader(message: CheckRequest, reader: jspb.BinaryReader): CheckRequest;
-}
-
-export namespace CheckRequest {
-  export type AsObject = {
-    token: string,
-  }
-}
-
-export class CheckResponse extends jspb.Message {
-  getCode(): ResponseCodeMap[keyof ResponseCodeMap];
-  setCode(value: ResponseCodeMap[keyof ResponseCodeMap]): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): CheckResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: CheckResponse): CheckResponse.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: CheckResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): CheckResponse;
-  static deserializeBinaryFromReader(message: CheckResponse, reader: jspb.BinaryReader): CheckResponse;
-}
-
-export namespace CheckResponse {
-  export type AsObject = {
-    code: ResponseCodeMap[keyof ResponseCodeMap],
   }
 }
 

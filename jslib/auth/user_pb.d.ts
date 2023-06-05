@@ -99,6 +99,15 @@ export namespace RegisterResponse {
   }
 }
 
+export interface UserTypeMap {
+  BOSS: 0;
+  ADMIN: 1;
+  NORMAL: 2;
+  BLACK: 3;
+}
+
+export const UserType: UserTypeMap;
+
 export interface LoginStatusMap {
   LOGIN_OK: 0;
   ERROR_PASSWORD: 1;

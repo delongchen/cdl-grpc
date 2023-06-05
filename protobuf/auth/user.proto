@@ -7,6 +7,13 @@ service User {
   rpc register (RegisterRequest) returns (RegisterResponse) {}
 }
 
+enum UserType {
+  BOSS = 0;
+  ADMIN = 1;
+  NORMAL = 2;
+  BLACK = 3;
+}
+
 enum LoginStatus {
   LOGIN_OK = 0;
   ERROR_PASSWORD = 1;

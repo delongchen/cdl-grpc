@@ -1,16 +1,19 @@
 syntax = "proto3";
 
+import "auth/user.proto";
+
 package auth;
 
 service AuthJWT {
   rpc Sign(SignRequest) returns (SignResponse) {}
-  rpc Check(CheckRequest) returns (CheckResponse) {}
 }
 
 message SignPayload {
   uint32 user_id = 1;
   string mail = 2;
   string user_name = 3;
+  bool remember = 4;
+  UserType type = 5;
 }
 
 message SignRequest {
@@ -26,12 +29,4 @@ message SignResponse {
   ResponseCode code = 1;
   string msg = 2;
   string token = 3;
-}
-
-message CheckRequest {
-  string token = 1;
-}
-
-message CheckResponse {
-  ResponseCode code = 1;
 }
