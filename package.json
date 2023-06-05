@@ -1,6 +1,6 @@
 {
     "name": "cdl-grpc",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "description": "cdl personal grpc",
     "main": "jslib/index.js",
     "scripts": {},

@@ -10,6 +10,9 @@ export class LoginRequest extends jspb.Message {
   getPassword(): string;
   setPassword(value: string): void;
 
+  getRemember(): boolean;
+  setRemember(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): LoginRequest.AsObject;
   static toObject(includeInstance: boolean, msg: LoginRequest): LoginRequest.AsObject;
@@ -24,6 +27,7 @@ export namespace LoginRequest {
   export type AsObject = {
     mail: string,
     password: string,
+    remember: boolean,
   }
 }
 

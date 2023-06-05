@@ -145,7 +145,8 @@ proto.auth.LoginRequest.prototype.toObject = function(opt_includeInstance) {
 proto.auth.LoginRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     mail: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    password: jspb.Message.getFieldWithDefault(msg, 2, "")
+    password: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    remember: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
   };
 
   if (includeInstance) {
@@ -190,6 +191,10 @@ proto.auth.LoginRequest.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setPassword(value);
       break;
+    case 3:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setRemember(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -233,6 +238,13 @@ proto.auth.LoginRequest.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getRemember();
+  if (f) {
+    writer.writeBool(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -269,6 +281,24 @@ proto.auth.LoginRequest.prototype.getPassword = function() {
  */
 proto.auth.LoginRequest.prototype.setPassword = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional bool remember = 3;
+ * @return {boolean}
+ */
+proto.auth.LoginRequest.prototype.getRemember = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.auth.LoginRequest} returns this
+ */
+proto.auth.LoginRequest.prototype.setRemember = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
