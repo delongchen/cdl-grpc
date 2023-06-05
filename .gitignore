@@ -1,4 +1,4 @@
 node_modules
 .idea
-gen.sh
+auto_gen.sh
 pnpm-lock.yaml

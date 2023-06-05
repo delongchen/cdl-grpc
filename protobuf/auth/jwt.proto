@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-import "auth/user.proto";
-
 package auth;
+
+import "auth/user.proto";
 
 service AuthJWT {
   rpc Sign(SignRequest) returns (SignResponse) {}
@@ -10,10 +10,10 @@ service AuthJWT {
 
 message SignPayload {
   uint32 user_id = 1;
-  string mail = 2;
+  string user_mail = 2;
   string user_name = 3;
   bool remember = 4;
-  UserType type = 5;
+  UserType user_type = 5;
 }
 
 message SignRequest {
@@ -22,7 +22,9 @@ message SignRequest {
 
 enum ResponseCode {
   OK = 0;
-  ERR = 1;
+  ERROR_EMPTY_BODY = 1;
+  ERROR_SERVER = 2;
+  ERROR_UNKNOWN = 3;
 }
 
 message SignResponse {

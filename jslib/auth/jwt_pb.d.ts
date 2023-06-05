@@ -8,8 +8,8 @@ export class SignPayload extends jspb.Message {
   getUserId(): number;
   setUserId(value: number): void;
 
-  getMail(): string;
-  setMail(value: string): void;
+  getUserMail(): string;
+  setUserMail(value: string): void;
 
   getUserName(): string;
   setUserName(value: string): void;
@@ -17,8 +17,8 @@ export class SignPayload extends jspb.Message {
   getRemember(): boolean;
   setRemember(value: boolean): void;
 
-  getType(): auth_user_pb.UserTypeMap[keyof auth_user_pb.UserTypeMap];
-  setType(value: auth_user_pb.UserTypeMap[keyof auth_user_pb.UserTypeMap]): void;
+  getUserType(): auth_user_pb.UserTypeMap[keyof auth_user_pb.UserTypeMap];
+  setUserType(value: auth_user_pb.UserTypeMap[keyof auth_user_pb.UserTypeMap]): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SignPayload.AsObject;
@@ -33,10 +33,10 @@ export class SignPayload extends jspb.Message {
 export namespace SignPayload {
   export type AsObject = {
     userId: number,
-    mail: string,
+    userMail: string,
     userName: string,
     remember: boolean,
-    type: auth_user_pb.UserTypeMap[keyof auth_user_pb.UserTypeMap],
+    userType: auth_user_pb.UserTypeMap[keyof auth_user_pb.UserTypeMap],
   }
 }
 
@@ -92,7 +92,9 @@ export namespace SignResponse {
 
 export interface ResponseCodeMap {
   OK: 0;
-  ERR: 1;
+  ERROR_EMPTY_BODY: 1;
+  ERROR_SERVER: 2;
+  ERROR_UNKNOWN: 3;
 }
 
 export const ResponseCode: ResponseCodeMap;

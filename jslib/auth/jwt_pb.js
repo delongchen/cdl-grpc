@@ -123,10 +123,10 @@ proto.auth.SignPayload.prototype.toObject = function(opt_includeInstance) {
 proto.auth.SignPayload.toObject = function(includeInstance, msg) {
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    mail: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    userMail: jspb.Message.getFieldWithDefault(msg, 2, ""),
     userName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     remember: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
-    type: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    userType: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -169,7 +169,7 @@ proto.auth.SignPayload.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setMail(value);
+      msg.setUserMail(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -181,7 +181,7 @@ proto.auth.SignPayload.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 5:
       var value = /** @type {!proto.auth.UserType} */ (reader.readEnum());
-      msg.setType(value);
+      msg.setUserType(value);
       break;
     default:
       reader.skipField();
@@ -219,7 +219,7 @@ proto.auth.SignPayload.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getMail();
+  f = message.getUserMail();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -240,7 +240,7 @@ proto.auth.SignPayload.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getType();
+  f = message.getUserType();
   if (f !== 0.0) {
     writer.writeEnum(
       5,
@@ -269,10 +269,10 @@ proto.auth.SignPayload.prototype.setUserId = function(value) {
 
 
 /**
- * optional string mail = 2;
+ * optional string user_mail = 2;
  * @return {string}
  */
-proto.auth.SignPayload.prototype.getMail = function() {
+proto.auth.SignPayload.prototype.getUserMail = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -281,7 +281,7 @@ proto.auth.SignPayload.prototype.getMail = function() {
  * @param {string} value
  * @return {!proto.auth.SignPayload} returns this
  */
-proto.auth.SignPayload.prototype.setMail = function(value) {
+proto.auth.SignPayload.prototype.setUserMail = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -323,10 +323,10 @@ proto.auth.SignPayload.prototype.setRemember = function(value) {
 
 
 /**
- * optional UserType type = 5;
+ * optional UserType user_type = 5;
  * @return {!proto.auth.UserType}
  */
-proto.auth.SignPayload.prototype.getType = function() {
+proto.auth.SignPayload.prototype.getUserType = function() {
   return /** @type {!proto.auth.UserType} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
@@ -335,7 +335,7 @@ proto.auth.SignPayload.prototype.getType = function() {
  * @param {!proto.auth.UserType} value
  * @return {!proto.auth.SignPayload} returns this
  */
-proto.auth.SignPayload.prototype.setType = function(value) {
+proto.auth.SignPayload.prototype.setUserType = function(value) {
   return jspb.Message.setProto3EnumField(this, 5, value);
 };
 
@@ -686,7 +686,9 @@ proto.auth.SignResponse.prototype.setToken = function(value) {
  */
 proto.auth.ResponseCode = {
   OK: 0,
-  ERR: 1
+  ERROR_EMPTY_BODY: 1,
+  ERROR_SERVER: 2,
+  ERROR_UNKNOWN: 3
 };
 
 goog.object.extend(exports, proto.auth);
