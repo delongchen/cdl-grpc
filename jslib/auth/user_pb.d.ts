@@ -103,6 +103,46 @@ export namespace RegisterResponse {
   }
 }
 
+export class MailRequest extends jspb.Message {
+  getMail(): string;
+  setMail(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MailRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: MailRequest): MailRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MailRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MailRequest;
+  static deserializeBinaryFromReader(message: MailRequest, reader: jspb.BinaryReader): MailRequest;
+}
+
+export namespace MailRequest {
+  export type AsObject = {
+    mail: string,
+  }
+}
+
+export class MailResponse extends jspb.Message {
+  getStatus(): MailStatusMap[keyof MailStatusMap];
+  setStatus(value: MailStatusMap[keyof MailStatusMap]): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MailResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: MailResponse): MailResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MailResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MailResponse;
+  static deserializeBinaryFromReader(message: MailResponse, reader: jspb.BinaryReader): MailResponse;
+}
+
+export namespace MailResponse {
+  export type AsObject = {
+    status: MailStatusMap[keyof MailStatusMap],
+  }
+}
+
 export interface UserTypeMap {
   BOSS: 0;
   ADMIN: 1;
@@ -127,4 +167,12 @@ export interface RegisterStatusMap {
 }
 
 export const RegisterStatus: RegisterStatusMap;
+
+export interface MailStatusMap {
+  SEND_OK: 0;
+  ERROR_MAIL_ADDR: 1;
+  ERROR_MAIL_SEND: 2;
+}
+
+export const MailStatus: MailStatusMap;
 

@@ -5,6 +5,7 @@ package auth;
 service User {
   rpc login (LoginRequest) returns (LoginResponse) {}
   rpc register (RegisterRequest) returns (RegisterResponse) {}
+  rpc mail (MailRequest) returns (MailResponse) {}
 }
 
 enum UserType {
@@ -26,6 +27,12 @@ enum RegisterStatus {
   ERROR_PASSWORD_ILLEGAL = 2;
 }
 
+enum MailStatus {
+  SEND_OK = 0;
+  ERROR_MAIL_ADDR = 1;
+  ERROR_MAIL_SEND = 2;
+}
+
 message LoginRequest {
   string mail = 1;
   string password = 2;
@@ -45,4 +52,12 @@ message RegisterRequest {
 message RegisterResponse {
   RegisterStatus status = 1;
   string msg = 2;
+}
+
+message MailRequest {
+  string mail = 1;
+}
+
+message MailResponse {
+  MailStatus status = 1;
 }
