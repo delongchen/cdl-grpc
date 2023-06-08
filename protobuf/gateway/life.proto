@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package gateway;
+
+service Gateway {
+  rpc ping (Ping) returns (Pong) {}
+  rpc register (RegisterRequest) returns (RegisterResponse) {}
+}
+
+message RegisterRequest {
+
+}
+
+message RegisterResponse {
+
+}
+
+message Ping {}
+
+message Pong {}

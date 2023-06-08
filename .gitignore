@@ -1,5 +1,8 @@
 node_modules
 .idea
 protoc-gen-js
+gen-js-index.js
+update.js
+protoc.sh
 auto_gen.sh
 pnpm-lock.yaml
