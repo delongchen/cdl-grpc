@@ -172,6 +172,8 @@ export interface RegisterStatusMap {
   REGISTER_OK: 0;
   ERROR_NAME_EXIST: 1;
   ERROR_PASSWORD_ILLEGAL: 2;
+  ERROR_CODE_NOT_EXIST: 3;
+  ERROR_CODE_NOT_OK: 4;
 }
 
 export const RegisterStatus: RegisterStatusMap;

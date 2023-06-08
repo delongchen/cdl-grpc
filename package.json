@@ -1,6 +1,6 @@
 {
     "name": "cdl-grpc",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "description": "cdl personal grpc",
     "main": "jslib/index.js",
     "scripts": {},
@@ -8,8 +8,8 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "google-protobuf": "link:../protobuf-javascript",
         "grpc-tools": "^1.12.4",
-        "protoc-gen-js": "^3.21.2",
         "ts-protoc-gen": "0.15.1-pre.a71b34e"
     }
 }
