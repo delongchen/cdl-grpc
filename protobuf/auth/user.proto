@@ -47,6 +47,7 @@ message LoginResponse {
 message RegisterRequest {
   string mail = 1;
   string password = 2;
+  string code = 3;
 }
 
 message RegisterResponse {
@@ -60,4 +61,5 @@ message MailRequest {
 
 message MailResponse {
   MailStatus status = 1;
+  string msg = 2;
 }

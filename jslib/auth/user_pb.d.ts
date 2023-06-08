@@ -62,6 +62,9 @@ export class RegisterRequest extends jspb.Message {
   getPassword(): string;
   setPassword(value: string): void;
 
+  getCode(): string;
+  setCode(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RegisterRequest.AsObject;
   static toObject(includeInstance: boolean, msg: RegisterRequest): RegisterRequest.AsObject;
@@ -76,6 +79,7 @@ export namespace RegisterRequest {
   export type AsObject = {
     mail: string,
     password: string,
+    code: string,
   }
 }
 
@@ -127,6 +131,9 @@ export class MailResponse extends jspb.Message {
   getStatus(): MailStatusMap[keyof MailStatusMap];
   setStatus(value: MailStatusMap[keyof MailStatusMap]): void;
 
+  getMsg(): string;
+  setMsg(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MailResponse.AsObject;
   static toObject(includeInstance: boolean, msg: MailResponse): MailResponse.AsObject;
@@ -140,6 +147,7 @@ export class MailResponse extends jspb.Message {
 export namespace MailResponse {
   export type AsObject = {
     status: MailStatusMap[keyof MailStatusMap],
+    msg: string,
   }
 }
 
