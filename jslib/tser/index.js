@@ -1,4 +1,4 @@
-//package auth
+//package tser
 //Fri Jul 07 2023 05:56:18 GMT+0800 (China Standard Time)
 
 "use strict";
@@ -20,7 +20,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 
 
-__exportStar(require("./jwt_pb"), exports);
-__exportStar(require("./jwt_grpc_pb"), exports);
-__exportStar(require("./user_pb"), exports);
-__exportStar(require("./user_grpc_pb"), exports);
+__exportStar(require("./client_pb"), exports);
+__exportStar(require("./peer_pb"), exports);
+__exportStar(require("./client_grpc_pb"), exports);
+__exportStar(require("./peer_grpc_pb"), exports);

@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package gateway;
+option go_package = "./gateway";
 
 service Gateway {
   rpc ping (Ping) returns (Pong) {}
