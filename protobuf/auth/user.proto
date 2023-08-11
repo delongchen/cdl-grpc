@@ -1,68 +1,31 @@
 syntax = "proto3";
 
-package auth;
 option go_package = "./auth";
 
+package auth;
+
 service User {
-  rpc login (LoginRequest) returns (LoginResponse) {}
-  rpc register (RegisterRequest) returns (RegisterResponse) {}
-  rpc mail (MailRequest) returns (MailResponse) {}
+  rpc Login(LoginRequest) returns (LoginResponse) {}
 }
 
-enum UserType {
-  BOSS = 0;
-  ADMIN = 1;
-  NORMAL = 2;
-  BLACK = 3;
+enum TokenStatus {
+  OK = 0;
 }
 
 enum LoginStatus {
   LOGIN_OK = 0;
-  ERROR_PASSWORD = 1;
-  ERROR_NAME = 2;
-}
-
-enum RegisterStatus {
-  REGISTER_OK = 0;
-  ERROR_NAME_EXIST = 1;
-  ERROR_PASSWORD_ILLEGAL = 2;
-  ERROR_CODE_NOT_EXIST = 3;
-  ERROR_CODE_NOT_OK = 4;
-}
-
-enum MailStatus {
-  SEND_OK = 0;
-  ERROR_MAIL_ADDR = 1;
-  ERROR_MAIL_SEND = 2;
+  EMAIL_NOT_EXIST = 1;
+  PASSWORD_ERROR = 2;
+  INTERNAL_ERROR = 3;
 }
 
 message LoginRequest {
-  string mail = 1;
+  string email = 1;
   string password = 2;
-  bool remember = 3;
+  bool keep = 3;
 }
 
 message LoginResponse {
   LoginStatus status = 1;
-  string msg = 2;
-}
-
-message RegisterRequest {
-  string mail = 1;
-  string password = 2;
-  string code = 3;
-}
-
-message RegisterResponse {
-  RegisterStatus status = 1;
-  string msg = 2;
-}
-
-message MailRequest {
-  string mail = 1;
-}
-
-message MailResponse {
-  MailStatus status = 1;
-  string msg = 2;
+  string token = 2;
 }

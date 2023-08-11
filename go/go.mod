@@ -1,4 +1,4 @@
-module github.com/delongchen/cdl-grpc/go
+module github.com/delongchen/cdl-grpc
 
 go 1.20
 

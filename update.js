@@ -1,4 +1,4 @@
-const pkg = require('./package.json')
+const pkg = require('./jslib/package.json')
 const fsp = require('node:fs/promises')
 
 const version = pkg.version.split('.').map(chunk => +chunk)
