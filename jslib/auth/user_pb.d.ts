@@ -55,6 +55,54 @@ export namespace LoginResponse {
   }
 }
 
+export class RegisterRequest extends jspb.Message {
+  getEmail(): string;
+  setEmail(value: string): void;
+
+  getPassword(): string;
+  setPassword(value: string): void;
+
+  getCode(): string;
+  setCode(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RegisterRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: RegisterRequest): RegisterRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RegisterRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RegisterRequest;
+  static deserializeBinaryFromReader(message: RegisterRequest, reader: jspb.BinaryReader): RegisterRequest;
+}
+
+export namespace RegisterRequest {
+  export type AsObject = {
+    email: string,
+    password: string,
+    code: string,
+  }
+}
+
+export class RegisterResponse extends jspb.Message {
+  getStatus(): RegisterStatusMap[keyof RegisterStatusMap];
+  setStatus(value: RegisterStatusMap[keyof RegisterStatusMap]): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RegisterResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: RegisterResponse): RegisterResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RegisterResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RegisterResponse;
+  static deserializeBinaryFromReader(message: RegisterResponse, reader: jspb.BinaryReader): RegisterResponse;
+}
+
+export namespace RegisterResponse {
+  export type AsObject = {
+    status: RegisterStatusMap[keyof RegisterStatusMap],
+  }
+}
+
 export interface TokenStatusMap {
   OK: 0;
 }
@@ -65,8 +113,16 @@ export interface LoginStatusMap {
   LOGIN_OK: 0;
   EMAIL_NOT_EXIST: 1;
   PASSWORD_ERROR: 2;
-  INTERNAL_ERROR: 3;
+  LOGIN_INTERNAL_ERROR: 3;
 }
 
 export const LoginStatus: LoginStatusMap;
+
+export interface RegisterStatusMap {
+  REGISTER_OK: 0;
+  VERIFY_CODE_ERROR: 1;
+  REGISTER_INTERNAL_ERROR: 2;
+}
+
+export const RegisterStatus: RegisterStatusMap;
 

@@ -6,6 +6,7 @@ package auth;
 
 service User {
   rpc Login(LoginRequest) returns (LoginResponse) {}
+  rpc Register(RegisterRequest) returns (RegisterResponse) {}
 }
 
 enum TokenStatus {
@@ -16,7 +17,7 @@ enum LoginStatus {
   LOGIN_OK = 0;
   EMAIL_NOT_EXIST = 1;
   PASSWORD_ERROR = 2;
-  INTERNAL_ERROR = 3;
+  LOGIN_INTERNAL_ERROR = 3;
 }
 
 message LoginRequest {
@@ -28,4 +29,20 @@ message LoginRequest {
 message LoginResponse {
   LoginStatus status = 1;
   string token = 2;
+}
+
+enum RegisterStatus {
+  REGISTER_OK = 0;
+  VERIFY_CODE_ERROR = 1;
+  REGISTER_INTERNAL_ERROR = 2;
+}
+
+message RegisterRequest {
+  string email = 1;
+  string password = 2;
+  string code = 3;
+}
+
+message RegisterResponse {
+  RegisterStatus status = 1;
 }
