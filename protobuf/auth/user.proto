@@ -7,10 +7,7 @@ package auth;
 service User {
   rpc Login(LoginRequest) returns (LoginResponse) {}
   rpc Register(RegisterRequest) returns (RegisterResponse) {}
-}
-
-enum TokenStatus {
-  OK = 0;
+  rpc Check(CheckTokenRequest) returns (CheckTokenResponse) {}
 }
 
 enum LoginStatus {
@@ -46,4 +43,18 @@ message RegisterRequest {
 
 message RegisterResponse {
   RegisterStatus status = 1;
+}
+
+enum TokenStatus {
+  TOKEN_OK = 0;
+  TOKEN_EXPIRED = 1;
+  TOKEN_CHANGED = 2;
+}
+
+message CheckTokenRequest {
+  string token = 1;
+}
+
+message CheckTokenResponse {
+  TokenStatus status = 1;
 }

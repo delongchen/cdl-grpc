@@ -4,6 +4,28 @@
 var grpc = require('@grpc/grpc-js');
 var auth_user_pb = require('../auth/user_pb.js');
 
+function serialize_auth_CheckTokenRequest(arg) {
+  if (!(arg instanceof auth_user_pb.CheckTokenRequest)) {
+    throw new Error('Expected argument of type auth.CheckTokenRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_auth_CheckTokenRequest(buffer_arg) {
+  return auth_user_pb.CheckTokenRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_auth_CheckTokenResponse(arg) {
+  if (!(arg instanceof auth_user_pb.CheckTokenResponse)) {
+    throw new Error('Expected argument of type auth.CheckTokenResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_auth_CheckTokenResponse(buffer_arg) {
+  return auth_user_pb.CheckTokenResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_auth_LoginRequest(arg) {
   if (!(arg instanceof auth_user_pb.LoginRequest)) {
     throw new Error('Expected argument of type auth.LoginRequest');
@@ -71,6 +93,17 @@ var UserService = exports.UserService = {
     requestDeserialize: deserialize_auth_RegisterRequest,
     responseSerialize: serialize_auth_RegisterResponse,
     responseDeserialize: deserialize_auth_RegisterResponse,
+  },
+  check: {
+    path: '/auth.User/Check',
+    requestStream: false,
+    responseStream: false,
+    requestType: auth_user_pb.CheckTokenRequest,
+    responseType: auth_user_pb.CheckTokenResponse,
+    requestSerialize: serialize_auth_CheckTokenRequest,
+    requestDeserialize: deserialize_auth_CheckTokenRequest,
+    responseSerialize: serialize_auth_CheckTokenResponse,
+    responseDeserialize: deserialize_auth_CheckTokenResponse,
   },
 };
 

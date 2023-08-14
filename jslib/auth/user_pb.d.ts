@@ -103,11 +103,45 @@ export namespace RegisterResponse {
   }
 }
 
-export interface TokenStatusMap {
-  OK: 0;
+export class CheckTokenRequest extends jspb.Message {
+  getToken(): string;
+  setToken(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CheckTokenRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: CheckTokenRequest): CheckTokenRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CheckTokenRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CheckTokenRequest;
+  static deserializeBinaryFromReader(message: CheckTokenRequest, reader: jspb.BinaryReader): CheckTokenRequest;
 }
 
-export const TokenStatus: TokenStatusMap;
+export namespace CheckTokenRequest {
+  export type AsObject = {
+    token: string,
+  }
+}
+
+export class CheckTokenResponse extends jspb.Message {
+  getStatus(): TokenStatusMap[keyof TokenStatusMap];
+  setStatus(value: TokenStatusMap[keyof TokenStatusMap]): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CheckTokenResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: CheckTokenResponse): CheckTokenResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CheckTokenResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CheckTokenResponse;
+  static deserializeBinaryFromReader(message: CheckTokenResponse, reader: jspb.BinaryReader): CheckTokenResponse;
+}
+
+export namespace CheckTokenResponse {
+  export type AsObject = {
+    status: TokenStatusMap[keyof TokenStatusMap],
+  }
+}
 
 export interface LoginStatusMap {
   LOGIN_OK: 0;
@@ -122,7 +156,16 @@ export interface RegisterStatusMap {
   REGISTER_OK: 0;
   VERIFY_CODE_ERROR: 1;
   REGISTER_INTERNAL_ERROR: 2;
+  USER_ALREADY_EXIST: 3;
 }
 
 export const RegisterStatus: RegisterStatusMap;
+
+export interface TokenStatusMap {
+  TOKEN_OK: 0;
+  TOKEN_EXPIRED: 1;
+  TOKEN_CHANGED: 2;
+}
+
+export const TokenStatus: TokenStatusMap;
 
