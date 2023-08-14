@@ -1143,7 +1143,8 @@ proto.auth.TokenStatus = {
   TOKEN_OK: 0,
   TOKEN_EXPIRED: 1,
   TOKEN_CHANGED: 2,
-  TOKEN_IS_NOT_RSA: 3
+  TOKEN_IS_NOT_RSA: 3,
+  TOKEN_PARSE_ERROR: 4
 };
 
 goog.object.extend(exports, proto.auth);

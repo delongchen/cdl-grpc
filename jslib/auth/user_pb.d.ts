@@ -170,6 +170,7 @@ export interface TokenStatusMap {
   TOKEN_EXPIRED: 1;
   TOKEN_CHANGED: 2;
   TOKEN_IS_NOT_RSA: 3;
+  TOKEN_PARSE_ERROR: 4;
 }
 
 export const TokenStatus: TokenStatusMap;
