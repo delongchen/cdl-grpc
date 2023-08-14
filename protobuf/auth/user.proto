@@ -49,10 +49,12 @@ enum TokenStatus {
   TOKEN_OK = 0;
   TOKEN_EXPIRED = 1;
   TOKEN_CHANGED = 2;
+  TOKEN_IS_NOT_RSA = 3;
 }
 
 message CheckTokenRequest {
   string token = 1;
+  string action = 2;
 }
 
 message CheckTokenResponse {

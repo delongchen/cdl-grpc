@@ -858,7 +858,8 @@ proto.auth.CheckTokenRequest.prototype.toObject = function(opt_includeInstance) 
  */
 proto.auth.CheckTokenRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    token: jspb.Message.getFieldWithDefault(msg, 1, "")
+    token: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    action: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -899,6 +900,10 @@ proto.auth.CheckTokenRequest.deserializeBinaryFromReader = function(msg, reader)
       var value = /** @type {string} */ (reader.readString());
       msg.setToken(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAction(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -935,6 +940,13 @@ proto.auth.CheckTokenRequest.serializeBinaryToWriter = function(message, writer)
       f
     );
   }
+  f = message.getAction();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -953,6 +965,24 @@ proto.auth.CheckTokenRequest.prototype.getToken = function() {
  */
 proto.auth.CheckTokenRequest.prototype.setToken = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string action = 2;
+ * @return {string}
+ */
+proto.auth.CheckTokenRequest.prototype.getAction = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.auth.CheckTokenRequest} returns this
+ */
+proto.auth.CheckTokenRequest.prototype.setAction = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1112,7 +1142,8 @@ proto.auth.RegisterStatus = {
 proto.auth.TokenStatus = {
   TOKEN_OK: 0,
   TOKEN_EXPIRED: 1,
-  TOKEN_CHANGED: 2
+  TOKEN_CHANGED: 2,
+  TOKEN_IS_NOT_RSA: 3
 };
 
 goog.object.extend(exports, proto.auth);

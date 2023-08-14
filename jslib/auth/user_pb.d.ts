@@ -107,6 +107,9 @@ export class CheckTokenRequest extends jspb.Message {
   getToken(): string;
   setToken(value: string): void;
 
+  getAction(): string;
+  setAction(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CheckTokenRequest.AsObject;
   static toObject(includeInstance: boolean, msg: CheckTokenRequest): CheckTokenRequest.AsObject;
@@ -120,6 +123,7 @@ export class CheckTokenRequest extends jspb.Message {
 export namespace CheckTokenRequest {
   export type AsObject = {
     token: string,
+    action: string,
   }
 }
 
@@ -165,6 +169,7 @@ export interface TokenStatusMap {
   TOKEN_OK: 0;
   TOKEN_EXPIRED: 1;
   TOKEN_CHANGED: 2;
+  TOKEN_IS_NOT_RSA: 3;
 }
 
 export const TokenStatus: TokenStatusMap;
