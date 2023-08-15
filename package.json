@@ -2,14 +2,15 @@
     "name": "cdl-grpc",
     "version": "0.2.3",
     "description": "cdl personal grpc",
-    "main": "index.js",
+    "main": "jslib/index.js",
+    "types": "jslib/index.d.ts",
     "scripts": {},
     "keywords": [],
-    "author": "",
+    "author": "cdl",
     "license": "ISC",
-    "devDependencies": {
-        "grpc-tools": "^1.12.4",
-        "ts-protoc-gen": "0.15.1-pre.a71b34e",
+    "devDependencies": {},
+    "dependencies": {
+        "@grpc/grpc-js": "^1.9.0",
         "google-protobuf": "^3.21.2"
     }
 }
